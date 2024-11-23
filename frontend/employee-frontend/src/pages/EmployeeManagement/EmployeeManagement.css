@@ -1,0 +1,94 @@
+/* Main container styling */
+.employee-management {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    background: linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%);
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease;
+}
+
+.employee-management:hover {
+    transform: scale(1.02);
+}
+
+/* Form styling */
+.employee-form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    background: linear-gradient(135deg, #ffffff 50%, #f5f5f5 100%);
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+.employee-form:hover {
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* Grid layout styling */
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+/* Input field styling */
+.form-input {
+    padding: 12px 16px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    font-size: 16px;
+    color: #333;
+    background: #f0f9ff;
+    background-image: linear-gradient(135deg, #f0f9ff 0%, #cfe9ff 100%);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease, background-color 0.3s ease;
+}
+
+/* Focus effect with animation */
+.form-input:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 4px 8px rgba(59, 130, 246, 0.3);
+    transform: scale(1.04);
+    background-color: #dbeafe;
+    animation: pulse 1s ease-in-out infinite;
+}
+
+/* Hover effect */
+.form-input:hover {
+    border-color: #2563eb;
+    background: #e0f2fe;
+}
+
+/* Button styling */
+.submit-btn {
+    padding: 12px 24px;
+    background: linear-gradient(135deg, #6ee7b7, #3b82f6);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.submit-btn:hover {
+    background: linear-gradient(135deg, #3b82f6, #6ee7b7);
+    transform: scale(1.05);
+}
+
+.submit-btn:active {
+    transform: scale(0.98);
+}
+
+/* Glow animation */
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 rgba(59, 130, 246, 0.2); }
+    50% { box-shadow: 0 0 12px rgba(59, 130, 246, 0.5); }
+    100% { box-shadow: 0 0 0 rgba(59, 130, 246, 0.2); }
+}

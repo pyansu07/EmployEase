@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task Manager</title>
+</head>
+<body>
+    <h1>Task Manager</h1>
+
+    <form id="taskForm">
+        <input type="text" id="taskName" placeholder="Enter task name" required>
+        <button type="submit">Add Task</button>
+    </form>
+
+    <ul id="taskList"></ul>
+
+    <script>
+        document.getElementById('taskForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const taskName = document.getElementById('taskName').value;
+            const task = { name: taskName, completed: false };
+
+            const response = await fetch('http://localhost:8080/tasks', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(task),
+            });
+
+            const newTask = await response.json();
+            addTaskToList(newTask);
+        });
+
+        async function fetchTasks() {
+            const response = await fetch('http://localhost:8080/tasks');
+            const tasks = await response.json();
+            tasks.forEach(addTaskToList);
+        }
+
+        function addTaskToList(task) {
+            const taskList = document.getElementById('taskList');
+            const listItem = document.createElement('li');
+            listItem.textContent = task.name;
+            taskList.appendChild(listItem);
+        }
+
+        fetchTasks();
+    </script>
+</body>
+</html>
